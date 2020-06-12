@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Packages.Rider.Editor.UnitTesting;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,12 +9,6 @@ public class Hacker : MonoBehaviour
     void Start()
     {
         ShowMainMenu("Hello Ben");
-    }
-
-    
-    void Update()
-    {
-        
     }
 
     void ShowMainMenu(string greeting)
@@ -27,6 +22,11 @@ public class Hacker : MonoBehaviour
         Terminal.WriteLine("Press 2 for the police station");
         Terminal.WriteLine("Press 3 for NASA");
         Terminal.WriteLine("Enter your selection ");
+    }
+
+    void OnUserInput(string input)
+    {
+        print(input);
     }
 
 }
