@@ -8,14 +8,13 @@ public class Hacker : MonoBehaviour
 
     void Start()
     {
-        ShowMainMenu("Hello Ben");
+        ShowMainMenu();
     }
 
-    void ShowMainMenu(string greeting)
+    void ShowMainMenu()
     {
         Terminal.ClearScreen();
 
-        Terminal.WriteLine(greeting);
         Terminal.WriteLine("What would you like to hack?");
         Terminal.WriteLine("");
         Terminal.WriteLine("Press 1 for the local library");
@@ -26,7 +25,19 @@ public class Hacker : MonoBehaviour
 
     void OnUserInput(string input)
     {
-        print(input == "1");
+        if (input == "menu")
+        {
+            ShowMainMenu();
+        }
+        else if (input == "1")
+        {
+            print("You chose level 1");
+        }
+        else
+        {
+            Terminal.WriteLine("Please chose a valid level");
+        }
+
     }
 
 }
