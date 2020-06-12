@@ -26,7 +26,7 @@ public class Hacker : MonoBehaviour
 
     void OnUserInput(string input)
     {
-        print(input);
+        print(input == "1");
     }
 
 }
