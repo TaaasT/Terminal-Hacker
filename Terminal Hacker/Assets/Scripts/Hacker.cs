@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class Hacker : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
+    {
+        ShowMainMenu();
+    }
+
+    
+    void Update()
+    {
+        
+    }
+
+    void ShowMainMenu()
     {
         Terminal.WriteLine("What would you like to hack?");
         Terminal.WriteLine("");
@@ -13,12 +24,6 @@ public class Hacker : MonoBehaviour
         Terminal.WriteLine("Press 2 for the police station");
         Terminal.WriteLine("Press 3 for NASA");
         Terminal.WriteLine("Enter your selection ");
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
