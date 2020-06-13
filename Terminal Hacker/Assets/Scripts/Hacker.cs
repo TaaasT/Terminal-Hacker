@@ -1,10 +1,12 @@
 ﻿using Packages.Rider.Editor.UnitTesting;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hacker : MonoBehaviour
 {
+    int level;
 
     void Start()
     {
@@ -31,7 +33,13 @@ public class Hacker : MonoBehaviour
         }
         else if (input == "1")
         {
-            print("You chose level 1");
+            level = 1;
+            StartGame();
+        }
+        else if(input == "2")
+        {
+            level = 2;
+            StartGame();
         }
         else
         {
@@ -40,4 +48,8 @@ public class Hacker : MonoBehaviour
 
     }
 
+    void StartGame()
+    {
+        Terminal.WriteLine("You have chosen level " + level);
+    }
 }
