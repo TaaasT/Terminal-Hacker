@@ -34,12 +34,21 @@ public class Hacker : MonoBehaviour
         {
             ShowMainMenu();
         }
-        else if (input == "1")
+        if(currentScreen == Screen.MainMenu)
+        {
+            RunMainMenu(input);
+        }
+
+    }
+
+    void RunMainMenu(string input)
+    {
+        if (input == "1")
         {
             level = 1;
             StartGame();
         }
-        else if(input == "2")
+        else if (input == "2")
         {
             level = 2;
             StartGame();
@@ -48,7 +57,6 @@ public class Hacker : MonoBehaviour
         {
             Terminal.WriteLine("Please chose a valid level");
         }
-
     }
 
     void StartGame()
