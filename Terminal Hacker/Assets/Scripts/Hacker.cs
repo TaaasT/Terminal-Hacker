@@ -1,9 +1,4 @@
-﻿using Packages.Rider.Editor.UnitTesting;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEditorInternal;
+﻿a
 using UnityEngine;
 
 public class Hacker : MonoBehaviour
@@ -72,15 +67,16 @@ public class Hacker : MonoBehaviour
         switch(level)
         {
             case 1:
-                password = level1Passwords[0];
+                password = level1Passwords[Random.Range(0, level1Passwords.Length)];
                 break;
             case 2:
-                password = level2Passwords[1];
+                password = level2Passwords[Random.Range(0, level1Passwords.Length)];
                 break;
             default:
                 Debug.LogError("Invalid level number");
                 break;
         }
+
         Terminal.WriteLine("Please enter your password");
     }
 
