@@ -7,9 +7,10 @@ using UnityEngine;
 public class Hacker : MonoBehaviour
 {
     int level;
+    string password;
 
     enum Screen { MainMenu, Password, Win};
-    Screen currentScreen = Screen.MainMenu;
+    Screen currentScreen;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class Hacker : MonoBehaviour
     void ShowMainMenu()
     {
         Terminal.ClearScreen();
-
+        currentScreen = Screen.MainMenu;
         Terminal.WriteLine("What would you like to hack?");
         Terminal.WriteLine("");
         Terminal.WriteLine("Press 1 for the local library");
@@ -34,9 +35,13 @@ public class Hacker : MonoBehaviour
         {
             ShowMainMenu();
         }
-        if(currentScreen == Screen.MainMenu)
+        else if(currentScreen == Screen.MainMenu)
         {
             RunMainMenu(input);
+        }
+        else if(currentScreen == Screen.Password)
+        {
+            CheckPassword(input);
         }
 
     }
@@ -46,11 +51,13 @@ public class Hacker : MonoBehaviour
         if (input == "1")
         {
             level = 1;
+            password = "donkey";
             StartGame();
         }
         else if (input == "2")
         {
             level = 2;
+            password = "combobulate";
             StartGame();
         }
         else
@@ -65,4 +72,17 @@ public class Hacker : MonoBehaviour
         Terminal.WriteLine("You have chosen level " + level);
         Terminal.WriteLine("Please enter your password");
     }
+
+    void CheckPassword(string input)
+    {
+        if(input == password)
+        {
+            Terminal.WriteLine("well done");
+        }
+        else
+        {
+            Terminal.WriteLine("Sorry, wrong password");
+        }            
+    }
+
 }
