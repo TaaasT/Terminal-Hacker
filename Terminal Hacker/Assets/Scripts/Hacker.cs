@@ -1,5 +1,4 @@
-﻿a
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hacker : MonoBehaviour
 {
@@ -84,7 +83,7 @@ public class Hacker : MonoBehaviour
     {
         if(input == password)
         {
-            Terminal.WriteLine("well done");
+            DisplayWinScreen();
         }
         else
         {
@@ -92,4 +91,32 @@ public class Hacker : MonoBehaviour
         }            
     }
 
+    void DisplayWinScreen()
+    {
+        currentScreen = Screen.Win;
+        Terminal.ClearScreen();
+        ShowLevelReward();
+    }
+
+    void ShowLevelReward()
+    {
+        switch(level)
+        {
+            case 1:
+                Terminal.WriteLine("Have a book..");
+                Terminal.WriteLine(@"
+    ________
+   /      //
+  /      //
+ /______//
+(______(/
+"               );
+                break;
+            case 2:
+                Terminal.WriteLine("You got the prison key!");
+                break;
+
+        }
+        
+    }
 }
