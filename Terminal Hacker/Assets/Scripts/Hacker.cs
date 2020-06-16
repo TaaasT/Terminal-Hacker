@@ -5,7 +5,8 @@ public class Hacker : MonoBehaviour
 {
     string[] level1Passwords = { "book", "aisle", "shelf", "password", "font", "borrow"};
     string[] level2Passwords = { "prisoner", "handcuffs", "holster", "uniform", "arrest"};
-    string menuHint = "You may type menu at any time";
+    string[] level3Passwords = { "starfield", "telescope", "enviroment", "exploration", "astronauts" };
+    const string menuHint = "You may type menu at any time";
 
     int level;
     string password;
@@ -26,7 +27,7 @@ public class Hacker : MonoBehaviour
         Terminal.WriteLine("");
         Terminal.WriteLine("Press 1 for the local library");
         Terminal.WriteLine("Press 2 for the police station");
-        Terminal.WriteLine("Press 3 for NASA");
+        Terminal.WriteLine("Press 3 for NASA!");
         Terminal.WriteLine("Enter your selection ");
     }
 
@@ -49,7 +50,7 @@ public class Hacker : MonoBehaviour
 
     void RunMainMenu(string input)
     {
-        bool isValidLevelNumber = (input == "1" || input == "2");
+        bool isValidLevelNumber = (input == "1" || input == "2" || input == "3");
         if(isValidLevelNumber)
         {
             level = int.Parse(input);
@@ -81,6 +82,9 @@ public class Hacker : MonoBehaviour
                 break;
             case 2:
                 password = level2Passwords[Random.Range(0, level1Passwords.Length)];
+                break;
+            case 3:
+                password = level3Passwords[Random.Range(0, level3Passwords.Length)];
                 break;
             default:
                 Debug.LogError("Invalid level number");
@@ -124,6 +128,9 @@ public class Hacker : MonoBehaviour
                 break;
             case 2:
                 Terminal.WriteLine("You got the prison key!");
+                break;
+            case 3:
+                Terminal.WriteLine("Welcome to NASA's internal system!");
                 break;
 
         }
