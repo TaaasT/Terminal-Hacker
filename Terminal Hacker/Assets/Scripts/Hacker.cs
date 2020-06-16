@@ -45,6 +45,10 @@ public class Hacker : MonoBehaviour
         {
             CheckPassword(input);
         }
+        else if(input == "quit" || input == "close" || input == "exit")
+        {
+            Application.Quit();
+        }
 
     }
 
